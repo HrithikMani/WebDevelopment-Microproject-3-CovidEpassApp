@@ -1,8 +1,9 @@
+import covid
 from flask import Flask
 from datetime import datetime
-import re
 
-import requests as re
+from covid import covid
+
 
 app = Flask(__name__)
 
@@ -23,25 +24,7 @@ def signup():
 
 
 # ---------------------------------------------------------------------------------------------
-
-@app.route("/covid/", methods=['GET'])
-def indiaNums():
-    r = re.get("https://api.rootnet.in/covid19-in/stats/latest")
-    data = r.json()
-    return dict(data["data"]["summary"])
-
-
-@app.route("/covid/<state>", methods=['GET'])
-def district(state):
-    r = re.get("https://api.rootnet.in/covid19-in/stats/latest")
-    data = r.json()
-    data = data["data"]["regional"]
-    result = "None"
-    for i in data:
-        if(i["loc"] == state):
-            result = i
-            break
-    return result
+app.register_blueprint(covid, url_prefix="/covid")
 
 
 if __name__ == "__main__":
