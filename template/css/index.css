@@ -1,0 +1,52 @@
+.bord {
+  border: 1px solid grey;
+}
+body {
+  background-color: #f7e0a3;
+}
+.main {
+  background-color: #4c8492;
+  color: white;
+  padding: 1rem;
+}
+/*
+#2e383f
+#07617d
+#ececeb
+#f9a828
+
+
+#fffde8
+#f7e0a3
+#f09c67
+#4c8492
+*/
+.home-log {
+  margin-right: 10px;
+  background-color: #ff6f3c;
+  font-weight: 600;
+  color: white;
+}
+
+.home-log:hover {
+  color: white;
+}
+.mainCount {
+  background-color: white;
+}
+.container-count {
+  padding: 3rem;
+}
+.container-values {
+  padding-bottom: 5rem;
+}
+.container-graphs {
+  background-color: white;
+  padding: 3rem;
+  margin-top: 5px;
+}
+.container-states {
+  padding: 3rem;
+  margin-top: 5px;
+  background-color: white;
+}
