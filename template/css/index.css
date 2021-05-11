@@ -50,3 +50,20 @@ body {
   margin-top: 5px;
   background-color: white;
 }
+.login-section {
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 7rem;
+}
+.noting {
+  padding: 10px;
+  text-align: center;
+}
+.register-section {
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
