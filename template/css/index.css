@@ -69,7 +69,6 @@ body {
 }
 .UsersSection {
   padding: 2rem;
-
   background-color: white;
 }
 
@@ -77,7 +76,6 @@ body {
   color: black;
 }
 
-/* Code By Webdevtrick ( https://webdevtrick.com ) */
 .container {
   padding: 50px 10%;
 }
@@ -149,4 +147,22 @@ body {
 .btn-primary {
   background-color: crimson;
   border: 1px solid #212121;
+}
+
+.cityname {
+  position: relative;
+  top: 40%;
+}
+.controler {
+  position: relative;
+  top: 45%;
+  cursor: pointer;
+}
+.lock {
+  position: relative;
+  top: 60%;
+}
+.lock-right {
+  top: 60px;
+  position: relative;
 }
