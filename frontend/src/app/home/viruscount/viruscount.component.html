@@ -1,0 +1,30 @@
+<section class="mainCount">
+    <div class="container-fluid ">
+        <div class="row container-count">
+            <div class="col">
+                
+            </div>
+            <div class="col-6 text-center">
+                <h1>Total Confirmed : {{res.total | number:'1.0':'en-US'}}</h1>
+            </div>
+            <div class="col">
+                
+            </div>
+        </div>
+        <div class="row container-values">
+            <div class="col text-center">
+        <h3>Active : <span style="color: #0ab3dd;">{{res.active | number:'1.0':'en-US'}}</span></h3>
+            </div>
+            <div class="col-4 text-center">
+                <div class="col text-center">
+                    <h3>Recovered : <span style="color: #20655f;">{{res.recovered | number:'1.0':'en-US'}}</span></h3>
+                </div>
+            </div>
+            <div class="col text-center">
+                <h3>Deceased : <span style="color: #e75151;">{{res.deaths | number:'1.0':'en-US'}}</span> </h3>
+            </div>
+
+        </div>
+    </div>
+</section>
+
