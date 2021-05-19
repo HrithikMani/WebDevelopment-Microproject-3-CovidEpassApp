@@ -7,10 +7,10 @@ covid = Blueprint("covid", __name__)
 def indiaNums():
     r = re.get("https://api.rootnet.in/covid19-in/stats/latest")
     data = r.json()
-    return dict(data["data"]["summary"])
+    return dict(data["data"]["unofficial-summary"][0])
 
 
-@covid.route("/<state>", methods=['GET'])
+@covid.route("state/<state>", methods=['GET'])
 def district(state):
     r = re.get("https://api.rootnet.in/covid19-in/stats/latest")
     data = r.json()
@@ -21,3 +21,10 @@ def district(state):
             result = i
             break
     return result
+@covid.route("/region", methods=['GET'])
+def region():
+    r=re.get("https://api.rootnet.in/covid19-in/stats/latest")
+    data=r.json()
+    d={"data":(data["data"]["regional"])}
+
+    return d
