@@ -1,13 +1,25 @@
 from flask import Blueprint
 import requests as re
 covid = Blueprint("covid", __name__)
-
-
+'''
+{
+  "active": 626192, 
+  "deaths": 119538, 
+  "recovered": 7198877, 
+  "source": "covid19india.org", 
+  "total": 7945975
+}
+'''
 @covid.route("/", methods=['GET'])
 def indiaNums():
     r = re.get("https://api.rootnet.in/covid19-in/stats/latest")
     data = r.json()
-    return dict(data["data"]["unofficial-summary"][0])
+    res = {}
+    res["total"] = data["data"]["summary"]["total"]
+    res["recovered"] = data["data"]["summary"]["discharged"]
+    res["deaths"] = data["data"]["summary"]["deaths"]
+    res["active"] = data["data"]["unofficial-summary"][0]["active"]
+    return res
 
 
 @covid.route("state/<state>", methods=['GET'])
