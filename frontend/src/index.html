@@ -20,52 +20,24 @@
   <script type="text/javascript">
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
-
+		$.get("http://127.0.0.1:5000/covid/cases",function(data){
+			localStorage.setItem("cases",JSON.stringify(data.data));
+		});
+		$.get("http://127.0.0.1:5000/covid/deaths",function(data){
+			localStorage.setItem("deaths",JSON.stringify(data.data));
+		});
     function drawChart() {
+	var a = JSON.parse(localStorage.getItem("cases"))
+	var b = JSON.parse(localStorage.getItem("deaths"))
+	
         var data = google.visualization.arrayToDataTable([
             ['Date', 'Cases'],
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-
-
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-
-            
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-
-            
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-            
-            ['2004', 1000],
-            ['2005', 1170],
-            ['2006', 660],
-            ['2007', 1030],
-    
+            ...a
+        ]);
+		
+		var data2 = google.visualization.arrayToDataTable([
+            ['Date', 'Cases'],
+            ...b
         ]);
 
         var options = {
@@ -73,11 +45,17 @@
             curveType: 'function',
             legend: { position: 'bottom' }
         };
+		var options1 = {
+            title: 'Number of Deaths',
+            curveType: 'function',
+            legend: { position: 'bottom' },
+			colors: ['#f36daa', 'blue', '#3fc26b']
+        };
 
         var chart = new google.visualization.AreaChart(document.getElementById('curve_chart'));
-         var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+         var chart2 = new google.visualization.AreaChart(document.getElementById('curve_chart2'));
         chart.draw(data, options);
-         chart2.draw(data, options);
+         chart2.draw(data2, options1);
     }
 </script>
 
